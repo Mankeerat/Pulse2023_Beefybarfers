@@ -67,6 +67,8 @@ def get_intersections(c1, c2, r0, r1):
     
 def animate(i, xs, ys, ax, x, y):
     a,b,c,d = gd.read_serial()
+    # dist = math.sqrt((x/2)**2 + (y/2)**2)
+    # a, b, c, d = dist, dist, dist, dist
     pos = getcoords(float(a),float(b),float(c),float(d),x,y)
     xs.append(pos[0])
     ys.append(pos[1])
@@ -91,8 +93,8 @@ def main():
     x = 20
     y = 10
     dist = math.sqrt((x/2)**2 + (y/2)**2)
-    plot_circles(dist,dist,dist,dist,x*2,y*2)
-    # print(getcoords(dist,dist,dist,dist,x*2,y*2))
+    plot_circles(dist,dist,dist,dist,x,y)
+    # print(getcoords(dist,dist,dist,dist,x,y))
     track_point(x,y)
 
 if __name__ == "__main__":
