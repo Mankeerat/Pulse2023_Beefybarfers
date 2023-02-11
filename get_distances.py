@@ -1,10 +1,25 @@
-# import serial
+# from mock_serial import MockSerial
 
-# ser = serial.Serial('/dev/cu.usbmodem11201', 115200, timeout=1)
+# device = MockSerial()
+# device.open()
 
-# def read_serial():
-#     a = ser.readline()
-#     b = ser.readline()
-#     c = ser.readline()
-#     d = ser.readline()
-#     return a,b,c,d
+# device.stub(
+#   receive_bytes=b'123',
+#   send_bytes=b'456'
+# )
+
+import serial
+ser = serial.Serial('/dev/cu.usbmodem11201', 115200, timeout=1)
+# ser = serial.Serial(device.port)
+
+
+# a = ser.readline()
+# print(a)
+
+def read_serial():
+    ser.write(b'123')
+    a = ser.readline().decode()
+    b = ser.readline().decode()
+    c = ser.readline().decode()
+    d = ser.readline().decode()
+    return a,b,c,d
